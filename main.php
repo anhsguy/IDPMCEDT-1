@@ -306,33 +306,34 @@ function sendrequest($xmlPayload) {
   
       // Boundary for the multipart message
       // Generate a random boundary string, to avoid collision with msg content
-      $boundary = '----=' . bin2hex(random_bytes(16));
+      // $boundary = '----=' . bin2hex(random_bytes(16));
+      $boundary = '----=Boundary_' . md5(uniqid(time()));
   
       // Construct the MIME message
       $mimeMessage = "--$boundary\r\n";
       $mimeMessage .= "Content-Type: application/xop+xml; charset=UTF-8; type=\"text/xml\"\r\n";
       $mimeMessage .= "Content-Transfer-Encoding: 8bit\r\n";
-      $mimeMessage .= "Content-ID: <rootpart@soapui.org>\r\n";
+      $mimeMessage .= "Content-ID: <rootpart@soapui.org>\r\n\r\n";
+      // there must be an extra line break between header and soap envelope
       $mimeMessage .= "$xmlPayload\r\n\r\n";
       $mimeMessage .= "--$boundary\r\n";
-      $mimeMessage .= "Content-Type: application/octet-stream;name=$contentId\r\n";
-      $mimeMessage .= "Content-Transfer-Encoding: binary\r\n";
-    // $mimeMessage .= "Content-Type: text/plain; charset=us-ascii\r\n";
-    // $mimeMessage .= "Content-Transfer-Encoding: 7bit\r\n";
+      // $mimeMessage .= "Content-Type: application/octet-stream;name=$contentId\r\n";
+      // $mimeMessage .= "Content-Transfer-Encoding: binary\r\n";
+      $mimeMessage .= "Content-Type: text/plain; charset=us-ascii\r\n";
+      $mimeMessage .= "Content-Transfer-Encoding: 7bit\r\n";
       $mimeMessage .= "Content-ID: <$contentId>\r\n";
-      $mimeMessage .= "Content-Disposition: attachment; name=\"$contentId\"; filename=\"$contentId\"\r\n\r\n";
+      $mimeMessage .= "Content-Disposition: attachment; name=\"$contentId\"\r\n\r\n";
       $mimeMessage .= "$fileContent\r\n";
       $mimeMessage .= "--$boundary--";
   
       $headers = [
         "Content-Type:multipart/related; type=\"application/xop+xml\"; start=\"<rootpart@soapui.org>\"; start-info=\"text/xml\"; boundary=\"$boundary\"",
         'MIME-Version: 1.0',
-        'User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)',
-        'Host: ws.conf.ebs.health.gov.on.ca:1443',
-        'Connection: Keep-Alive',
-        'Accept-Encoding: gzip, deflate',
-        'Authorization: Basic Y29uZnN1KzQyN0BnbWFpbC5jb206UGFzc3dvcmQyIQ==',
-        'SOAPAction: ""',
+        // 'User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)',
+        // 'Connection: Keep-Alive',
+        // 'Accept-Encoding: gzip, deflate',
+        // 'Authorization: Basic Y29uZnN1KzQyN0BnbWFpbC5jb206UGFzc3dvcmQyIQ==',
+        // 'SOAPAction: ""',
         // "Content-Length:".strlen($mimeMessage), //xmlPayload
       ];
 
@@ -405,11 +406,11 @@ $response = sendrequest($rawxml);
 
 // echo out the response to console
 // echo "\nServerStatus= ".$response[0]."\n\n\n"; //for debugging
-echo $response[1]."\n\n\n"; // for debugging
+// echo $response[1]."\n\n\n"; // for debugging
 
 
-// $decryptedResult = decryptResponse($response[1]);
-// echo $decryptedResult; //for debugging
+$decryptedResult = decryptResponse($response[1]);
+echo $decryptedResult; //for debugging
 
 function decryptResponse($responseXML) {
   // input encrypted response XML, output decrypted result XML
