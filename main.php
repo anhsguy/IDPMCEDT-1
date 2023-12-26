@@ -1,9 +1,11 @@
 <?php
 // initialize with input parameters to this API
 
-global $method;
-$method = 'update';
+global $method, $claimfile, $resourceID;
+$method = 'upload';
 // $method = "info";
+$claimfile = 'HL801284.017';
+$resourceID = "83321";
 
 global $MOH_ID, $username, $password;
 $MOH_ID = '621300';
@@ -23,29 +25,29 @@ $privatekey = $pkcs12Info['pkey'];
 
 
 function loadbody() {
-  global $method;
+  global $method, $claimfile, $resourceID;
   switch ($method) {
   case 'info':
     $rawbody = <<<EOT
      <soapenv:Body wsu:Id="id-5">
         <edt:info>
            <!--1 to 100 repetitions:-->
-           <resourceIDs>83321</resourceIDs>
+           <resourceIDs>$resourceID</resourceIDs>
         </edt:info>
      </soapenv:Body>
     EOT;
       break;
-  case 'update':
+  case 'upload':
     $rawbody = <<<EOT
     <soapenv:Body wsu:Id="id-5">
       <edt:upload>
          <!--1 to 5 repetitions:-->
          <upload>
             <content>
-              <inc:Include href="cid:HL801284.017" xmlns:inc="http://www.w3.org/2004/08/xop/include" />
+              <inc:Include href="cid:$claimfile" xmlns:inc="http://www.w3.org/2004/08/xop/include" />
             </content>
             <!--Optional:-->
-            <description>HL801284.017</description>
+            <description>$claimfile</description>
             <resourceType>CL</resourceType>
          </upload>
       </edt:upload>
@@ -291,7 +293,7 @@ $rawxml = loadxmltemplate();
 function sendrequest($xmlPayload) {
   $url = 'https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService';
 
-  global $method;
+  global $method, $claimfile;
   switch ($method) {
     case 'info':
       $headers = [
@@ -300,9 +302,8 @@ function sendrequest($xmlPayload) {
       ];
       break;
     
-    case 'update':
-      $fileContent = file_get_contents('HL801284.017');
-      $contentId = 'HL801284.017'; // is just the file name e.g. HL8012345.001
+    case 'upload':
+      $fileContent = file_get_contents($claimfile);
   
       // Boundary for the multipart message
       // Generate a random boundary string, to avoid collision with msg content
@@ -315,14 +316,15 @@ function sendrequest($xmlPayload) {
       $mimeMessage .= "Content-Transfer-Encoding: 8bit\r\n";
       $mimeMessage .= "Content-ID: <rootpart@soapui.org>\r\n\r\n";
       // there must be an extra line break between header and soap envelope
-      $mimeMessage .= "$xmlPayload\r\n\r\n";
+      $mimeMessage .= "$xmlPayload\r\n";
       $mimeMessage .= "--$boundary\r\n";
-      // $mimeMessage .= "Content-Type: application/octet-stream;name=$contentId\r\n";
+      // $mimeMessage .= "Content-Type: application/octet-stream;       name=$contentId\r\n";
       // $mimeMessage .= "Content-Transfer-Encoding: binary\r\n";
       $mimeMessage .= "Content-Type: text/plain; charset=us-ascii\r\n";
       $mimeMessage .= "Content-Transfer-Encoding: 7bit\r\n";
-      $mimeMessage .= "Content-ID: <$contentId>\r\n";
-      $mimeMessage .= "Content-Disposition: attachment; name=\"$contentId\"\r\n\r\n";
+      // contentId is just the file name e.g. HL8012345.001
+      $mimeMessage .= "Content-ID: <$claimfile>\r\n";
+      $mimeMessage .= "Content-Disposition: attachment;   name=\"$claimfile\"\r\n\r\n";
       $mimeMessage .= "$fileContent\r\n";
       $mimeMessage .= "--$boundary--";
   
