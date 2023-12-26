@@ -1,0 +1,78 @@
+1. create cacert.pem - done
+2. file as attachment to the Body - done
+3. Dealing with warnings:
+  a. <inc:Include href="cid:Claim.File.txt" xmlns:inc="http://www.w3.org/2004/08/xop/include"/>
+  b. put edt.health.ontario.ca / to $root_namespaces
+ 
+
+
+warning:  -   // Load the XML content into the DOMDocument
+             $dom->loadXML($xml);
+
+  Warning: DOMDocument::loadXML(): Attribute xmlns:wsu redefined in Entity, line: 2 in /home/runner/soapClient/main.php on line 94 (already defined in DOMDocument)  
+
+Warning: DOMDocument::loadXML(): Namespace prefix edt on upload is not defined in Entity, line: 3 in /home/runner/soapClient/main.php on line 94  -->put edt.health.ontario.ca/ to $root_namespaces
+
+  Warning: DOMDocument::loadXML(): AttValue: " or ' expected in Entity, line: 6 in /home/runner/soapClient/main.php on line 94
+  
+  Warning: DOMDocument::loadXML(): attributes construct error in Entity, line: 6 in /home/runner/soapClient/main.php on line 94
+  
+  Warning: DOMDocument::loadXML(): Namespace prefix inc on Include is not defined in Entity, line: 6 in /home/runner/soapClient/main.php on line 94
+  
+  Warning: DOMDocument::loadXML(): Couldn't find end of Start Tag Include line 6 in Entity, line: 6 in /home/runner/soapClient/main.php on line 94
+
+4. Add MIMI and SOAP part headers >got response: EBS Fault code > SMIDL0204 (General system error)
+$headers['SOAPPartHeaders'] = [
+    'Content-Type' => 'application/xop+xml; charset=UTF-8; type="text/xml"',
+    'Content-Transfer-Encoding' => '8bit',
+    'Content-ID' => '<xxx@xxx.org>',
+];
+
+<soapenv:Body wsu:Id="Body-3e7fc513-6df8-4eb6-8dd3-77b7ac14dff2"   xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <soapenv:Fault>
+    <faultcode>soapenv:Server</faultcode>
+    <faultstring/>
+    <detail>
+      <ns1:EBSFault
+        xmlns:ns1="http://ebs.health.ontario.ca/">
+        <code>SMIDL0204</code>
+        <message>General System Error; contact your technical support or software vendor. </message>
+      </ns1:EBSFault>
+    </detail>
+  </soapenv:Fault>
+</soapenv:Body>
+
+HCV response:
+<soapenv:Body wsu:Id="Body-309a84f6-56ef-42f1-9509-b1f066f419d2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <soapenv:Fault>
+        <faultcode>soapenv:Server</faultcode>
+        <faultstring>ca.ontario.health.hcv.Faultexception</faultstring>
+            <detail>
+                <a:EBSFault xmlns:c="http://hcv.health.ontario.ca/" xmlns:b="http://idp.ebs.health.ontario.ca/" xmlns:a="http://ebs.health.ontario.ca/">
+                    <code>EHCAU0021</code>
+                    <message>Authorization failed; contact your technical support or software vendor.</message>
+                </a:EBSFault>
+            </detail>
+    </soapenv:Fault>
+</soapenv:Body>
+5. Compare the message before response
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml
+X-Backside-Transport: FAIL FAIL
+Connection: close
+
+HCV:
+HTTP/1.1 200 OK
+X-Backside-Transport: OK OK,OK OK,OK OK,FAIL FAIL
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+Content-Type: text/xml
+Date: Thu, 21 Dec 2023 14:03:41 GMT
+X-Global-Transaction-ID: f466f0b1658445bc01826071
+Via: 1.1 10.198.22.202:1457
+
+
+The sequence of $EBS and $IDP difference between EBS-EDT - IDP Model Message Example.docx and MCEDT Upload Request Message Structure.pdf (one is just after Header-$EBS/$IDP <> before Body $IDP/$EBS)
+Try both, same result.
+6. Sending 'getTypeList' request > response don't know why decrypted AES key not created with the privite key (IV is created)

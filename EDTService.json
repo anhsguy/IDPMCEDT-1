@@ -1,0 +1,159 @@
+Array
+(
+    [0] => deleteResponse delete(delete $parameters)
+    [1] => downloadResponse download(download $parameters)
+    [2] => getTypeListResponse getTypeList(getTypeList $parameters)
+    [3] => infoResponse info(info $parameters)
+    [4] => listResponse list(list $parameters)
+    [5] => submitResponse submit(submit $parameters)
+    [6] => updateResponse update(update $parameters)
+    [7] => uploadResponse upload(upload $parameters)
+    [8] => deleteResponse delete(delete $parameters)
+    [9] => downloadResponse download(download $parameters)
+    [10] => getTypeListResponse getTypeList(getTypeList $parameters)
+    [11] => infoResponse info(info $parameters)
+    [12] => listResponse list(list $parameters)
+    [13] => submitResponse submit(submit $parameters)
+    [14] => updateResponse update(update $parameters)
+    [15] => uploadResponse upload(upload $parameters)
+)
+Array
+(
+    [0] => struct ebsFault {
+ string code;
+ string message;
+}
+    [1] => string key
+    [2] => string uid
+    [3] => struct ebs_header {
+ key SoftwareConformanceKey;
+ uid AuditId;
+}
+    [4] => string audit
+    [5] => struct upload {
+ uploadData upload;
+}
+    [6] => struct uploadData {
+ base64Binary content;
+ string description;
+ string resourceType;
+}
+    [7] => struct uploadResponse {
+ resourceResult return;
+}
+    [8] => struct resourceResult {
+ audit auditID;
+ responseResult response;
+}
+    [9] => struct responseResult {
+ string description;
+ integer resourceID;
+ commonResult result;
+ resourceStatus status;
+}
+    [10] => struct commonResult {
+ string code;
+ string msg;
+}
+    [11] => struct getTypeList {
+}
+    [12] => struct getTypeListResponse {
+ typeListResult return;
+}
+    [13] => struct typeListResult {
+ audit auditID;
+ typeListData data;
+}
+    [14] => struct csnData {
+ string soloCsn;
+ string groupCsn;
+}
+    [15] => struct typeListData {
+ resourceAccess access;
+ string descriptionEn;
+ string descriptionFr;
+ boolean groupRequired;
+ string resourceType;
+ commonResult result;
+ csnData csns;
+}
+    [16] => struct info {
+ integer resourceIDs;
+}
+    [17] => struct infoResponse {
+ detail return;
+}
+    [18] => struct detail {
+ audit auditID;
+ detailData data;
+ integer resultSize;
+}
+    [19] => struct detailData {
+ dateTime createTimestamp;
+ string description;
+ string resourceType;
+ dateTime modifyTimestamp;
+ integer resourceID;
+ commonResult result;
+ resourceStatus status;
+}
+    [20] => struct list {
+ string resourceType;
+ resourceStatus status;
+ integer pageNo;
+}
+    [21] => struct listResponse {
+ detail return;
+}
+    [22] => struct update {
+ updateRequest updates;
+}
+    [23] => struct updateRequest {
+ base64Binary content;
+ integer resourceID;
+}
+    [24] => struct updateResponse {
+ resourceResult return;
+}
+    [25] => struct download {
+ integer resourceIDs;
+}
+    [26] => struct downloadResponse {
+ downloadResult return;
+}
+    [27] => struct downloadResult {
+ audit auditID;
+ downloadData data;
+}
+    [28] => struct downloadData {
+ base64Binary content;
+ integer resourceID;
+ string resourceType;
+ string description;
+ commonResult result;
+}
+    [29] => struct submit {
+ integer resourceIDs;
+}
+    [30] => struct submitResponse {
+ resourceResult return;
+}
+    [31] => struct delete {
+ integer resourceIDs;
+}
+    [32] => struct deleteResponse {
+ resourceResult return;
+}
+    [33] => string resourceStatus
+    [34] => string resourceAccess
+    [35] => string muid
+    [36] => struct idp_header {
+ muid ServiceUserMUID;
+}
+    [37] => string user
+    [38] => string muid
+    [39] => struct msa_header {
+ muid ServiceUserMUID;
+ user UserID;
+}
+)

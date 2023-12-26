@@ -1,0 +1,152 @@
+POST /EDTService/EDTService HTTP/1.1
+Host: ws.conf.ebs.health.gov.on.ca:1443
+Accept: */*
+Content-Type:multipart/related; type="application/xop+xml"; start="<rootpart@soapui.org>"; start-info="text/xml"; boundary="----=dc454cb6db753c3c177774833c4772f6"
+MIME-Version: 1.0
+User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)
+Connection: Keep-Alive
+Content-Length: 6602
+
+------=dc454cb6db753c3c177774833c4772f6
+Content-Type: application/xop+xml; charset=UTF-8; type="text/xml"
+Content-Transfer-Encoding: 8bit
+Content-ID: <rootpart@soapui.org>
+<soapenv:Envelope
+xmlns:ebs="http://ebs.health.ontario.ca/"
+xmlns:edt="http://edt.health.ontario.ca/"
+xmlns:idp="http://idp.ebs.health.ontario.ca/"
+xmlns:msa="http://msa.ebs.health.ontario.ca/"
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+<soapenv:Header>
+<wsse:Security
+xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+<wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-4A6564966742022D8B170319672914254">MIICZTCCAc6gAwIBAgIJAOfnCbp0ZcrkMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNVBAYTAkNBMRAwDgYDVQQIEwdPbnRhcmlvMRAwDgYDVQQHEwdUb3JvbnRvMQ0wCwYDVQQKEwRPSElQMQ0wCwYDVQQLEwRPSElQMRIwEAYDVQQDEwlUZXN0IENlcnQwHhcNMjMxMjIxMjEzOTA5WhcNNDMxMjE2MjEzOTA5WjBjMQswCQYDVQQGEwJDQTEQMA4GA1UECBMHT250YXJpbzEQMA4GA1UEBxMHVG9yb250bzENMAsGA1UEChMET0hJUDENMAsGA1UECxMET0hJUDESMBAGA1UEAxMJVGVzdCBDZXJ0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCW0yRHATronyEOqxrh7y7jN1Va+8jAOfnY/NPMvrLmo6w8cWPfzroTx6+R7sOTiH63TlyDYR3H9POi1rrx5FePU267hZdSFBA8Yz93MTdaCb6eHtm/OqwYVQjq5hOmwInOWzY6GEDQO97MQ4SvXo9zU+TcoKHEL0XZDqD/NbcEYQIDAQABoyEwHzAdBgNVHQ4EFgQUyarNiRTnydza4ifUBwZENxn9m1swDQYJKoZIhvcNAQELBQADgYEAa6sWLouZO3yL+9qZz0h0lnUHODj2Xg6J8j6Rg3Yah+0V90qkrbR4IdnbNFivW1zBkzxSOP12Tj8xiaYQ93lf6NVYcHJI1UXM8p4YTM9QVVy+wXPdoxKD7wCbqw5opDc7uTd7CBqfzqsl6BTqpNVN5DVvVaYkl5fWTLSqvD/YrTU=</wsse:BinarySecurityToken>
+<wsse:UsernameToken wsu:Id="UsernameToken-2">
+<wsse:Username>confsu+427@gmail.com</wsse:Username>
+<wsse:Password 
+Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Password2!</wsse:Password>
+</wsse:UsernameToken>
+<wsu:Timestamp wsu:Id="TS-1">
+<wsu:Created>2023-12-26T00:16:49.544Z</wsu:Created>
+<wsu:Expires>2023-12-26T00:26:49.544Z</wsu:Expires>
+</wsu:Timestamp>
+<ds:Signature Id="SIG-6" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="ebs edt idp msa soapenv wsu"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="#UsernameToken-2">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="wsse ebs edt idp msa soapenv"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>Mgt498j2lqCevR0AfVOoSroOMhRylTKAY0dpijK06gA=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#TS-1">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="ebs edt idp msa"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>izpEonHDUUtOI/TSP4b47TbrBaZNMwi55KM3MIyS42w=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#id-3">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="ebs edt msa soapenv"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>YMEKaf7OXW5Fz2cEnybcnvurFYWLXWDdlxsqrvLQxwM=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#id-4">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="edt idp msa soapenv"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>S12XrjB6tKlFWnmegof6zIutHkQX/BJxfzhJM8jljCc=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#id-5">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+<ec:InclusiveNamespaces PrefixList="ebs edt idp msa soapenv"
+xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>MPoLF1mGZ3kP6oJyCJArioByLbTJ4itZPQNw9N+48dw=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+lrv+uLooAMyp0exObhM44JisWbYwI5R5w/a0TIouax3YlJqlEPzdRIE5l5xpNtxw93ut72oCtun/a+A7U+Lm+0Rudy1W7bcPCw+1yHrT6X7vRfY6nSO1jrjJwaXx7gUTJ6ZUF7FGhe+CK/O7sG6bI+LLVFkWM7EShjIKIoJB450=
+</ds:SignatureValue>
+<ds:KeyInfo Id="KI-4A6564966742022D8B170319672914255">
+<wsse:SecurityTokenReference wsu:Id="STR-4A6564966742022D8B170319672914256">
+<wsse:Reference URI="#X509-4A6564966742022D8B170319672914254" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+</wsse:SecurityTokenReference>
+</ds:KeyInfo>
+</ds:Signature>
+</wsse:Security>
+<idp:IDP wsu:Id="id-3">
+<ServiceUserMUID>621300</ServiceUserMUID>
+</idp:IDP>
+<ebs:EBS wsu:Id="id-4">
+<SoftwareConformanceKey>da3c7d46-42b9-4cd5-8485-8580e3a39593</SoftwareConformanceKey>
+<AuditId>62c986dd-5411-f027-2e69-e2869c8c948c</AuditId>
+</ebs:EBS>
+</soapenv:Header>
+<soapenv:Body wsu:Id="id-5">
+  <edt:upload>
+     <!--1 to 5 repetitions:-->
+     <upload>
+        <content>
+          <inc:Include href="cid:HL801284.017" xmlns:inc="http://www.w3.org/2004/08/xop/include" />
+        </content>
+        <!--Optional:-->
+        <description>HL801284.017</description>
+        <resourceType>CL</resourceType>
+     </upload>
+  </edt:upload>
+</soapenv:Body>
+</soapenv:Envelope>
+
+------=dc454cb6db753c3c177774833c4772f6
+Content-Type: application/octet-stream; name=HL801284.017
+Content-Transfer-Encoding: binary
+Content-ID: <HL801284.017>
+Content-Disposition: attachment; name="HL801284.017"; filename="HL801284.017"
+
+HEBV03E202312220017000000000080128456                                          
+HEH8822014182TW1940110911100048HCPP                                            
+HETV406A  0080000120231222367                                                  
+HEE0001000000001                                                               
+
+------=dc454cb6db753c3c177774833c4772f6--
+
+
+HTTP/1.1 500 Error
+Content-Type: multipart/related; type="application/xop+xml"; start="<rootpart@soapui.org>"; start-info="text/xml"; boundary="----=dc454cb6db753c3c177774833c4772f6"
+X-Backside-Transport: FAIL FAIL
+Connection: close
+
+<?xml version='1.0' ?>
+<env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'>
+<env:Body>
+<env:Fault>
+<faultcode>env:Client</faultcode>
+<faultstring>Internal Error</faultstring>
+</env:Fault>
+</env:Body>
+</env:Envelope>

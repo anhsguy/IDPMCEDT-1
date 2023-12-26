@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e7b1b88a-d0d0-484a-9059-30d45b3e000d" activeEnvironment="Default" name="OHIP EBS MCEDT" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7d14550f-9838-4cb8-a2de-30ba2ce93b12" wsaVersion="NONE" name="EDTPortBinding" type="wsdl" bindingName="{http://edt.health.ontario.ca/}EDTPortBinding" soapVersion="1_1" anonymous="optional" definition="https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService?wsdl"><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://edt.health.ontario.ca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://edt.health.ontario.ca/">
+  <wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:schema>
+      <xsd:import schemaLocation="EDTService.xsd2.xsd" namespace="http://ebs.health.ontario.ca/"/>
+      <xsd:import schemaLocation="EDTService.xsd3.xsd" namespace="http://ebs.health.ontario.ca/"/>
+      <xsd:import schemaLocation="EDTService.xsd4.xsd" namespace="http://edt.health.ontario.ca/"/>
+      <xsd:import schemaLocation="EDTService.xsd6.xsd" namespace="http://idp.ebs.health.ontario.ca/"/>
+      <xsd:import schemaLocation="EDTService.xsd5.xsd" namespace="http://msa.ebs.health.ontario.ca/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="xsns:delete" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="xsns:deleteResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="download">
+    <wsdl:part name="parameters" element="xsns:download" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="downloadResponse">
+    <wsdl:part name="parameters" element="xsns:downloadResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="EBSHeader">
+    <wsdl:part name="ebsrequest_header" element="xsns:EBS" xmlns:xsns="http://ebs.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="faultexception">
+    <wsdl:part name="Fault" element="xsns:EBSFault" xmlns:xsns="http://ebs.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="getTypeList">
+    <wsdl:part name="parameters" element="xsns:getTypeList" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="getTypeListResponse">
+    <wsdl:part name="parameters" element="xsns:getTypeListResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="IDPHeader">
+    <wsdl:part name="idprequest_header" element="xsns:IDP" xmlns:xsns="http://idp.ebs.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="info">
+    <wsdl:part name="parameters" element="xsns:info" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="infoResponse">
+    <wsdl:part name="parameters" element="xsns:infoResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="list">
+    <wsdl:part name="parameters" element="xsns:list" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="listResponse">
+    <wsdl:part name="parameters" element="xsns:listResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="MSAHeader">
+    <wsdl:part name="msarequest_header" element="xsns:MSA" xmlns:xsns="http://msa.ebs.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="submit">
+    <wsdl:part name="parameters" element="xsns:submit" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="submitResponse">
+    <wsdl:part name="parameters" element="xsns:submitResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="update">
+    <wsdl:part name="parameters" element="xsns:update" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="xsns:updateResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="upload">
+    <wsdl:part name="parameters" element="xsns:upload" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:message name="uploadResponse">
+    <wsdl:part name="parameters" element="xsns:uploadResponse" xmlns:xsns="http://edt.health.ontario.ca/"/>
+  </wsdl:message>
+  <wsdl:portType name="EDTDelegate">
+    <wsdl:operation name="delete">
+      <wsdl:input name="deleteRequest" message="ns0:delete"/>
+      <wsdl:output name="deleteResponse" message="ns0:deleteResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="download">
+      <wsdl:input name="downloadRequest" message="ns0:download"/>
+      <wsdl:output name="downloadResponse" message="ns0:downloadResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTypeList">
+      <wsdl:input name="getTypeListRequest" message="ns0:getTypeList"/>
+      <wsdl:output name="getTypeListResponse" message="ns0:getTypeListResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <wsdl:input name="infoRequest" message="ns0:info"/>
+      <wsdl:output name="infoResponse" message="ns0:infoResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="list">
+      <wsdl:input name="listRequest" message="ns0:list"/>
+      <wsdl:output name="listResponse" message="ns0:listResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="submit">
+      <wsdl:input name="submitRequest" message="ns0:submit"/>
+      <wsdl:output name="submitResponse" message="ns0:submitResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input name="updateRequest" message="ns0:update"/>
+      <wsdl:output name="updateResponse" message="ns0:updateResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+    <wsdl:operation name="upload">
+      <wsdl:input name="uploadRequest" message="ns0:upload"/>
+      <wsdl:output name="uploadResponse" message="ns0:uploadResponse"/>
+      <wsdl:fault name="FaultException" message="ns0:faultexception"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EDTPortBinding" type="ns0:EDTDelegate">
+    <soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="delete">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="download">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="downloadRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="downloadResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTypeList">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="getTypeListRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTypeListResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="infoRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="infoResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="list">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="listRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submit">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="submitRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="submitResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="updateRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="upload">
+      <soap11:operation soapAction="" style="document"/>
+      <wsdl:input name="uploadRequest">
+        <wsp:PolicyReference URI="#policy0" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+        <soap11:body parts="parameters" use="literal"/>
+        <soap11:header message="ns0:EBSHeader" part="ebsrequest_header" use="literal"/>
+        <soap11:header message="ns0:MSAHeader" part="msarequest_header" use="literal"/>
+        <soap11:header message="ns0:IDPHeader" part="idprequest_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uploadResponse">
+        <soap11:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultException">
+        <soap11:fault name="FaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EDTService">
+    <wsdl:port name="EDTPort" binding="ns0:EDTPortBinding">
+      <soap11:address location="https://204.41.14.202:1443/EDTService/EDTService"/>
+    </wsdl:port>
+    <wsdl:port name="EDTPort.2" binding="ns0:EDTPortBinding">
+      <soap11:address location="https://204.41.14.200:1443/EDTService/EDTService"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="policy0" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedSupportingTokens xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:UsernameToken>
+            <wsp:Policy>
+              <wsp:All>
+                <sp:WssUsernameToken10/>
+              </wsp:All>
+            </wsp:Policy>
+          </sp:UsernameToken>
+        </sp:SignedSupportingTokens>
+        <sp:SignedParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="EBS" Namespace="http://ebs.health.ontario.ca/"/>
+          <sp:Header Name="IDP" Namespace="http://idp.ebs.health.ontario.ca/"/>
+          <sp:Header Name="Timestamp" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+          <sp:Header Name="UsernameToken" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="EBS" Namespace="http://ebs.health.ontario.ca/"/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="IDP" Namespace="http://idp.ebs.health.ontario.ca/"/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="SoftwareConformanceKey" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="AuditId" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="ServiceUserMUID" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="Timestamp" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+        </sp:RequiredParts>
+      </wsp:All>
+      <wsp:All>
+        <sp:SignedSupportingTokens xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:UsernameToken>
+            <wsp:Policy>
+              <wsp:All>
+                <sp:NoPassword/>
+                <sp:WssUsernameToken10/>
+              </wsp:All>
+            </wsp:Policy>
+          </sp:UsernameToken>
+        </sp:SignedSupportingTokens>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="EBS" Namespace="http://ebs.health.ontario.ca/"/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="MSA" Namespace="http://msa.ebs.health.ontario.ca/"/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="SoftwareConformanceKey" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="AuditId" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="ServiceUserMUID" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="UserID" Namespace=""/>
+        </sp:RequiredParts>
+        <sp:RequiredParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="Timestamp" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+        </sp:RequiredParts>
+        <sp:SignedParts xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+          <sp:Header Name="EBS" Namespace="http://ebs.health.ontario.ca/"/>
+          <sp:Header Name="MSA" Namespace="http://msa.ebs.health.ontario.ca/"/>
+          <sp:Header Name="Timestamp" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+          <sp:Header Name="UsernameToken" Namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+          <sp:Body/>
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService.xsd2.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://ebs.health.ontario.ca/" version="1.0" xmlns:tns="http://ebs.health.ontario.ca/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EBSFault" type="tns:ebsFault"/>
+  <xs:complexType name="ebsFault">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService.xsd3.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://ebs.health.ontario.ca/" version="1.0" xmlns:tns="http://ebs.health.ontario.ca/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EBS" type="tns:ebs_header"/>
+  <xs:simpleType name="key">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="36"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="uid">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="128"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ebs_header">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="SoftwareConformanceKey" type="tns:key"/>
+      <xs:element minOccurs="1" name="AuditId" type="tns:uid"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService.xsd4.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://edt.health.ontario.ca/" version="1.0" xmlns:tns="http://edt.health.ontario.ca/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="delete" type="tns:delete"/>
+  <xs:element name="deleteResponse" type="tns:deleteResponse"/>
+  <xs:element name="download" type="tns:download"/>
+  <xs:element name="downloadResponse" type="tns:downloadResponse"/>
+  <xs:element name="getTypeList" type="tns:getTypeList"/>
+  <xs:element name="getTypeListResponse" type="tns:getTypeListResponse"/>
+  <xs:element name="info" type="tns:info"/>
+  <xs:element name="infoResponse" type="tns:infoResponse"/>
+  <xs:element name="list" type="tns:list"/>
+  <xs:element name="listResponse" type="tns:listResponse"/>
+  <xs:element name="submit" type="tns:submit"/>
+  <xs:element name="submitResponse" type="tns:submitResponse"/>
+  <xs:element name="update" type="tns:update"/>
+  <xs:element name="updateResponse" type="tns:updateResponse"/>
+  <xs:element name="upload" type="tns:upload"/>
+  <xs:element name="uploadResponse" type="tns:uploadResponse"/>
+  <xs:simpleType name="audit">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="upload">
+    <xs:sequence>
+      <xs:element maxOccurs="5" minOccurs="1" name="upload" type="tns:uploadData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadData">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="content" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="1" name="resourceType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uploadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:resourceResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resourceResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="auditID" type="tns:audit"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="response" type="tns:responseResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="1" name="resourceID" type="xs:integer"/>
+      <xs:element minOccurs="1" name="result" type="tns:commonResult"/>
+      <xs:element minOccurs="1" name="status" type="tns:resourceStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="commonResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="code" type="xs:string"/>
+      <xs:element minOccurs="1" name="msg" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTypeList">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getTypeListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:typeListResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeListResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="auditID" type="tns:audit"/>
+      <xs:element maxOccurs="unbounded" minOccurs="1" name="data" type="tns:typeListData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="csnData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="soloCsn" type="xs:string"/>
+      <xs:element minOccurs="0" name="groupCsn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeListData">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="access" type="tns:resourceAccess"/>
+      <xs:element minOccurs="1" name="descriptionEn" type="xs:string"/>
+      <xs:element minOccurs="1" name="descriptionFr" type="xs:string"/>
+      <xs:element minOccurs="1" name="groupRequired" type="xs:boolean"/>
+      <xs:element minOccurs="1" name="resourceType" type="xs:string"/>
+      <xs:element minOccurs="1" name="result" type="tns:commonResult"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="csns" type="tns:csnData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="info">
+    <xs:sequence>
+      <xs:element maxOccurs="100" minOccurs="1" name="resourceIDs" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="infoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detail">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="auditID" type="tns:audit"/>
+      <xs:element maxOccurs="50" minOccurs="0" name="data" type="tns:detailData"/>
+      <xs:element minOccurs="1" name="resultSize" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detailData">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="createTimestamp" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="resourceType" type="xs:string"/>
+      <xs:element minOccurs="0" name="modifyTimestamp" type="xs:dateTime"/>
+      <xs:element minOccurs="1" name="resourceID" type="xs:integer"/>
+      <xs:element minOccurs="1" name="result" type="tns:commonResult"/>
+      <xs:element minOccurs="1" name="status" type="tns:resourceStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="list">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resourceType" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="tns:resourceStatus"/>
+      <xs:element minOccurs="0" name="pageNo" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="update">
+    <xs:sequence>
+      <xs:element maxOccurs="5" minOccurs="1" name="updates" type="tns:updateRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="content" type="xs:base64Binary"/>
+      <xs:element minOccurs="1" name="resourceID" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:resourceResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="download">
+    <xs:sequence>
+      <xs:element maxOccurs="5" minOccurs="1" name="resourceIDs" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downloadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:downloadResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downloadResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="auditID" type="tns:audit"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="data" type="tns:downloadData"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downloadData">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="content" type="xs:base64Binary"/>
+      <xs:element minOccurs="1" name="resourceID" type="xs:integer"/>
+      <xs:element minOccurs="1" name="resourceType" type="xs:string"/>
+      <xs:element minOccurs="1" name="description" type="xs:string"/>
+      <xs:element minOccurs="1" name="result" type="tns:commonResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submit">
+    <xs:sequence>
+      <xs:element maxOccurs="100" minOccurs="1" name="resourceIDs" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:resourceResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delete">
+    <xs:sequence>
+      <xs:element maxOccurs="100" minOccurs="1" name="resourceIDs" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="tns:resourceResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="resourceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UPLOADED"/>
+      <xs:enumeration value="SUBMITTED"/>
+      <xs:enumeration value="WIP"/>
+      <xs:enumeration value="DOWNLOADABLE"/>
+      <xs:enumeration value="DELETED"/>
+      <xs:enumeration value="APPROVED"/>
+      <xs:enumeration value="DENIED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="resourceAccess">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UPLOAD"/>
+      <xs:enumeration value="DOWNLOAD"/>
+      <xs:enumeration value="BOTH"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService.xsd6.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://idp.ebs.health.ontario.ca/" version="1.0" xmlns:tns="http://idp.ebs.health.ontario.ca/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IDP" type="tns:idp_header"/>
+  <xs:simpleType name="muid">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="idp_header">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="ServiceUserMUID" type="tns:muid"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://ws.conf.ebs.health.gov.on.ca:1443/EDTService/EDTService.xsd5.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://msa.ebs.health.ontario.ca/" version="1.0" xmlns:tns="http://msa.ebs.health.ontario.ca/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MSA" type="tns:msa_header"/>
+  <xs:simpleType name="user">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="muid">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="msa_header">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="ServiceUserMUID" type="tns:muid"/>
+      <xs:element minOccurs="1" name="UserID" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:endpoint>https://204.41.14.202:1443/EDTService/EDTService</con:endpoint></con:endpoints><con:operation id="d8d773dd-ddb9-4b20-84dc-11e0cab57261" isOneWay="false" action="" name="delete" bindingOperationName="delete" type="Request-Response" outputName="deleteResponse" inputName="deleteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c0d892b-9854-471f-9848-9179ef5c45ef" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <msa:MSA>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+         <UserID>?</UserID>\r
+      </msa:MSA>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>?</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:delete>\r
+         <!--1 to 100 repetitions:-->\r
+         <resourceIDs>?</resourceIDs>\r
+      </edt:delete>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/deleteRequest"/></con:call></con:operation><con:operation id="506d07b8-6921-499b-839f-7ab3c0849a35" isOneWay="false" action="" name="download" bindingOperationName="download" type="Request-Response" outputName="downloadResponse" inputName="downloadRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bd1ec15f-779c-4593-bf07-d28966740d27" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <msa:MSA>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+         <UserID>?</UserID>\r
+      </msa:MSA>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>?</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:download>\r
+         <!--1 to 5 repetitions:-->\r
+         <resourceIDs>?</resourceIDs>\r
+      </edt:download>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/downloadRequest"/></con:call></con:operation><con:operation id="fd75f3e4-cbe0-40c6-bca9-f95f08e8f621" isOneWay="false" action="" name="getTypeList" bindingOperationName="getTypeList" type="Request-Response" outputName="getTypeListResponse" inputName="getTypeListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="88176c85-d91a-4378-b3ad-bdb949b397a0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r
+   <soapenv:Header>\r
+      <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">\r
+         <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-4A6564966742022D8B170319672914254">MIICZTCCAc6gAwIBAgIJAOfnCbp0ZcrkMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNVBAYTAkNBMRAwDgYDVQQIEwdPbnRhcmlvMRAwDgYDVQQHEwdUb3JvbnRvMQ0wCwYDVQQKEwRPSElQMQ0wCwYDVQQLEwRPSElQMRIwEAYDVQQDEwlUZXN0IENlcnQwHhcNMjMxMjIxMjEzOTA5WhcNNDMxMjE2MjEzOTA5WjBjMQswCQYDVQQGEwJDQTEQMA4GA1UECBMHT250YXJpbzEQMA4GA1UEBxMHVG9yb250bzENMAsGA1UEChMET0hJUDENMAsGA1UECxMET0hJUDESMBAGA1UEAxMJVGVzdCBDZXJ0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCW0yRHATronyEOqxrh7y7jN1Va+8jAOfnY/NPMvrLmo6w8cWPfzroTx6+R7sOTiH63TlyDYR3H9POi1rrx5FePU267hZdSFBA8Yz93MTdaCb6eHtm/OqwYVQjq5hOmwInOWzY6GEDQO97MQ4SvXo9zU+TcoKHEL0XZDqD/NbcEYQIDAQABoyEwHzAdBgNVHQ4EFgQUyarNiRTnydza4ifUBwZENxn9m1swDQYJKoZIhvcNAQELBQADgYEAa6sWLouZO3yL+9qZz0h0lnUHODj2Xg6J8j6Rg3Yah+0V90qkrbR4IdnbNFivW1zBkzxSOP12Tj8xiaYQ93lf6NVYcHJI1UXM8p4YTM9QVVy+wXPdoxKD7wCbqw5opDc7uTd7CBqfzqsl6BTqpNVN5DVvVaYkl5fWTLSqvD/YrTU=</wsse:BinarySecurityToken>\r
+         <wsse:UsernameToken wsu:Id="UsernameToken-4A6564966742022D8B170319672914153">\r
+            <wsse:Username>confsu+427@gmail.com</wsse:Username>\r
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Password2!</wsse:Password>\r
+         </wsse:UsernameToken>\r
+         <wsu:Timestamp wsu:Id="TS-4A6564966742022D8B170319672914152">\r
+            <wsu:Created>2023-12-21T22:12:09.141Z</wsu:Created>\r
+            <wsu:Expires>2023-12-21T22:22:09.141Z</wsu:Expires>\r
+         </wsu:Timestamp>\r
+         <ds:Signature Id="SIG-4A6564966742022D8B170319672916057" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">\r
+            <ds:SignedInfo>\r
+               <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                  <ec:InclusiveNamespaces PrefixList="ebs edt idp msa soapenv wsu" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+               </ds:CanonicalizationMethod>\r
+               <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>\r
+               <ds:Reference URI="#TS-4A6564966742022D8B170319672914152">\r
+                  <ds:Transforms>\r
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                        <ec:InclusiveNamespaces PrefixList="wsse ebs edt idp msa soapenv" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+                     </ds:Transform>\r
+                  </ds:Transforms>\r
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>\r
+                  <ds:DigestValue>h8kDiJDmElNPcJvwEVUqewo8VCS+eHINujzRKGlqTUk=</ds:DigestValue>\r
+               </ds:Reference>\r
+               <ds:Reference URI="#id-5">\r
+                  <ds:Transforms>\r
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                        <ec:InclusiveNamespaces PrefixList="ebs edt idp msa" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+                     </ds:Transform>\r
+                  </ds:Transforms>\r
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>\r
+                  <ds:DigestValue>mAsWgYwr6DFLefc7gwG3tss7LP9iKy+/uwDO/Ln+kW8=</ds:DigestValue>\r
+               </ds:Reference>\r
+               <ds:Reference URI="#id-1">\r
+                  <ds:Transforms>\r
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                        <ec:InclusiveNamespaces PrefixList="ebs edt msa soapenv" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+                     </ds:Transform>\r
+                  </ds:Transforms>\r
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>\r
+                  <ds:DigestValue>GVnsYmLchYgwPgRzLW/yfrrdwvtSiDQpNHKDSgZ3lGk=</ds:DigestValue>\r
+               </ds:Reference>\r
+               <ds:Reference URI="#id-2">\r
+                  <ds:Transforms>\r
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                        <ec:InclusiveNamespaces PrefixList="edt idp msa soapenv" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+                     </ds:Transform>\r
+                  </ds:Transforms>\r
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>\r
+                  <ds:DigestValue>z/Insy1J0ydQneoATlNQeODWReo69MHGmQjlVEu5jrg=</ds:DigestValue>\r
+               </ds:Reference>\r
+               <ds:Reference URI="#UsernameToken-4A6564966742022D8B170319672914153">\r
+                  <ds:Transforms>\r
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">\r
+                        <ec:InclusiveNamespaces PrefixList="ebs edt idp msa soapenv" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/>\r
+                     </ds:Transform>\r
+                  </ds:Transforms>\r
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>\r
+                  <ds:DigestValue>7v5Gk1EeyIHd7PxabX2rGHHes/Upy/lUchE9cNYlDog=</ds:DigestValue>\r
+               </ds:Reference>\r
+            </ds:SignedInfo>\r
+            <ds:SignatureValue>PHvDyovURAY5iIsmCf+h4labggS+MtVvnrrJ+Z1mPwYi5N3rTujUpMEQZ8aBULpmQCVDpKE6hWJPpopAt9kkAlyWGeQZqSWDlbzerl2LGLCo1BcKPWkGTzI5yA68ucE72O1cWCs3wJHGakQATtBrMr1TV0ZZ8jGCrm/7dZskiR4=</ds:SignatureValue>\r
+            <ds:KeyInfo Id="KI-4A6564966742022D8B170319672914255">\r
+               <wsse:SecurityTokenReference wsu:Id="STR-4A6564966742022D8B170319672914256">\r
+                  <wsse:Reference URI="#X509-4A6564966742022D8B170319672914254" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>\r
+               </wsse:SecurityTokenReference>\r
+            </ds:KeyInfo>\r
+         </ds:Signature>\r
+      </wsse:Security>\r
+      <idp:IDP wsu:Id="id-1">\r
+         <ServiceUserMUID>621300</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <ebs:EBS wsu:Id="id-2">\r
+         <SoftwareConformanceKey>da3c7d46-42b9-4cd5-8485-8580e3a39593</SoftwareConformanceKey>\r
+         <AuditId>${#Project#Audit}</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body wsu:Id="id-5">\r
+      <edt:getTypeList/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/getTypeListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="24b4d4a6-8a25-4a98-99ff-e47680a3b2fd" isOneWay="false" action="" name="info" bindingOperationName="info" type="Request-Response" outputName="infoResponse" inputName="infoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="de1dff0e-bd31-43de-9866-04638278aae7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>621300</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>da3c7d46-42b9-4cd5-8485-8580e3a39593</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:info>\r
+         <!--1 to 100 repetitions:-->\r
+         <resourceIDs>?</resourceIDs>\r
+      </edt:info>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/infoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="980e9e0d-6823-4701-a283-333115dc6729" isOneWay="false" action="" name="list" bindingOperationName="list" type="Request-Response" outputName="listResponse" inputName="listRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="402a9ed8-4a09-4d0d-ba2d-cffc7d39d2d0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>621300</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>da3c7d46-42b9-4cd5-8485-8580e3a39593</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:list>\r
+         <!--Optional:-->\r
+         <resourceType>?</resourceType>\r
+         <!--Optional:-->\r
+         <status>?</status>\r
+         <!--Optional:-->\r
+         <pageNo>?</pageNo>\r
+      </edt:list>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/listRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="37014e97-1f6c-49f7-bf0c-167a2dcabbab" isOneWay="false" action="" name="submit" bindingOperationName="submit" type="Request-Response" outputName="submitResponse" inputName="submitRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a1d37a5-9b1f-49a9-adb8-426b37e06731" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <msa:MSA>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+         <UserID>?</UserID>\r
+      </msa:MSA>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>?</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:submit>\r
+         <!--1 to 100 repetitions:-->\r
+         <resourceIDs>?</resourceIDs>\r
+      </edt:submit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/submitRequest"/></con:call></con:operation><con:operation id="c9237810-c28e-4b03-88de-f69f1637e0ef" isOneWay="false" action="" name="update" bindingOperationName="update" type="Request-Response" outputName="updateResponse" inputName="updateRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f6db78f-461e-421a-bc1a-bdd064516188" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <msa:MSA>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+         <UserID>?</UserID>\r
+      </msa:MSA>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>?</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:update>\r
+         <!--1 to 5 repetitions:-->\r
+         <updates>\r
+            <content>cid:757475509873</content>\r
+            <resourceID>?</resourceID>\r
+         </updates>\r
+      </edt:update>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/updateRequest"/></con:call></con:operation><con:operation id="35d41aa2-c5ed-47fc-ad8e-7bbd8a284bb2" isOneWay="false" action="" name="upload" bindingOperationName="upload" type="Request-Response" outputName="uploadResponse" inputName="uploadRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="73e6ff10-3dcf-4a8b-b9bd-2bbb69fa257c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://204.41.14.200:1443/EDTService/EDTService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:idp="http://idp.ebs.health.ontario.ca/" xmlns:msa="http://msa.ebs.health.ontario.ca/" xmlns:ebs="http://ebs.health.ontario.ca/" xmlns:edt="http://edt.health.ontario.ca/">\r
+   <soapenv:Header>\r
+      <idp:IDP>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+      </idp:IDP>\r
+      <msa:MSA>\r
+         <ServiceUserMUID>?</ServiceUserMUID>\r
+         <UserID>?</UserID>\r
+      </msa:MSA>\r
+      <ebs:EBS>\r
+         <SoftwareConformanceKey>?</SoftwareConformanceKey>\r
+         <AuditId>?</AuditId>\r
+      </ebs:EBS>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <edt:upload>\r
+         <!--1 to 5 repetitions:-->\r
+         <upload>\r
+            <content>cid:52548194327</content>\r
+            <!--Optional:-->\r
+            <description>?</description>\r
+            <resourceType>?</resourceType>\r
+         </upload>\r
+      </edt:upload>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://edt.health.ontario.ca/EDTDelegate/uploadRequest"/></con:call></con:operation></con:interface><con:properties><con:property><con:name>Audit</con:name><con:value>${= java.util.UUID.randomUUID()}</con:value></con:property></con:properties><con:wssContainer><con:crypto><con:source>C:/Users/Mike/Documents/Dropbox/Web Developement/OHIP EBS MCEDT/SoapUI/teststore.p12</con:source><con:password>changeit</con:password><con:type>KEYSTORE</con:type></con:crypto><con:outgoing><con:name>outgoinghandler</con:name><con:entry type="Timestamp"><con:configuration><timeToLive>600</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Username" password="Password2!" username="confsu+427@gmail.com"><con:configuration><addCreated>false</addCreated><addNonce>false</addNonce><passwordType>PasswordText</passwordType></con:configuration></con:entry><con:entry type="Signature" username="client" password="changeit"><con:configuration><crypto>teststore.p12</crypto><keyIdentifierType>1</keyIdentifierType><signatureAlgorithm>http://www.w3.org/2000/09/xmldsig#rsa-sha1</signatureAlgorithm><signatureCanonicalization>http://www.w3.org/2001/10/xml-exc-c14n#</signatureCanonicalization><useSingleCert>true</useSingleCert><prependSignature>false</prependSignature><digestAlgorithm>http://www.w3.org/2001/04/xmlenc#sha256</digestAlgorithm><customTokenValueType/><customTokenId/><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+  <con:entry key="id" value=""/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="name" value=""/>
+  <con:entry key="namespace" value="wsu"/>
+  <con:entry key="id" value="id-5"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="name" value=""/>
+  <con:entry key="namespace" value="wsu"/>
+  <con:entry key="id" value="id-1"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="name" value=""/>
+  <con:entry key="namespace" value="wsu"/>
+  <con:entry key="id" value="id-2"/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="name" value="UsernameToken"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+  <con:entry key="id" value=""/>
+  <con:entry key="enc" value="Element"/>
+</xml-fragment>]]></signaturePart></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
