@@ -2,14 +2,16 @@
 // initialize with input parameters to this API
 
 global $method;
-$method = 'update'; //info, update
+$method = 'update';
+// $method = "info";
 
 global $MOH_ID, $username, $password;
 $MOH_ID = '621300';
 $username = 'confsu+427@gmail.com';
 $password = 'Password2!';
-global $privatekey;
+
 // load $privatekey
+global $privatekey;
 // Load the PKCS#12 file
 $pkcs12 = file_get_contents('teststore.p12');
 
@@ -19,11 +21,6 @@ openssl_pkcs12_read($pkcs12, $pkcs12Info, 'changeit');
 // load the private key
 $privatekey = $pkcs12Info['pkey'];
 
-// include 'payload_mike.php';
-// see examples of response from other rawbody (see left side of replit in uploaded files)
-// getTypelist first valid response 2023-12-24.xml
-// list first valid response 2023-12-24
-// info first valid response 2023-12-24
 
 function loadbody() {
   global $method;
@@ -318,21 +315,25 @@ function sendrequest($xmlPayload) {
       $mimeMessage .= "Content-ID: <rootpart@soapui.org>\r\n";
       $mimeMessage .= "$xmlPayload\r\n\r\n";
       $mimeMessage .= "--$boundary\r\n";
-      $mimeMessage .= "Content-Type: application/octet-stream; name=$contentId\r\n";
+      $mimeMessage .= "Content-Type: application/octet-stream;name=$contentId\r\n";
       $mimeMessage .= "Content-Transfer-Encoding: binary\r\n";
+    // $mimeMessage .= "Content-Type: text/plain; charset=us-ascii\r\n";
+    // $mimeMessage .= "Content-Transfer-Encoding: 7bit\r\n";
       $mimeMessage .= "Content-ID: <$contentId>\r\n";
       $mimeMessage .= "Content-Disposition: attachment; name=\"$contentId\"; filename=\"$contentId\"\r\n\r\n";
       $mimeMessage .= "$fileContent\r\n";
       $mimeMessage .= "--$boundary--";
   
       $headers = [
-          "Content-Type:multipart/related; type=\"application/xop+xml\"; start=\"<rootpart@soapui.org>\"; start-info=\"text/xml\"; boundary=\"$boundary\"",
-          'MIME-Version: 1.0',
-          'User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)',
-          'Host: ws.conf.ebs.health.gov.on.ca:1443',
-          'Connection: Keep-Alive',
-          // 'Accept-Encoding: gzip, deflate',
-          // 'Content-Length' => strlen($xmlPayload),
+        "Content-Type:multipart/related; type=\"application/xop+xml\"; start=\"<rootpart@soapui.org>\"; start-info=\"text/xml\"; boundary=\"$boundary\"",
+        'MIME-Version: 1.0',
+        'User-Agent: Apache-HttpClient/4.5.5 (Java/16.0.2)',
+        'Host: ws.conf.ebs.health.gov.on.ca:1443',
+        'Connection: Keep-Alive',
+        'Accept-Encoding: gzip, deflate',
+        'Authorization: Basic Y29uZnN1KzQyN0BnbWFpbC5jb206UGFzc3dvcmQyIQ==',
+        'SOAPAction: ""',
+        // "Content-Length:".strlen($mimeMessage), //xmlPayload
       ];
 
       $xmlPayload = $mimeMessage;
@@ -407,8 +408,8 @@ $response = sendrequest($rawxml);
 echo $response[1]."\n\n\n"; // for debugging
 
 
-$decryptedResult = decryptResponse($response[1]);
-echo $decryptedResult; //for debugging
+// $decryptedResult = decryptResponse($response[1]);
+// echo $decryptedResult; //for debugging
 
 function decryptResponse($responseXML) {
   // input encrypted response XML, output decrypted result XML
