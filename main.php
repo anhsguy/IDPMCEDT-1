@@ -1,11 +1,15 @@
 <?php
 // initialize with input parameters to this API
-
+include'response_to_file.php';
 global $method, $claimfile, $resourceID;
-$method = 'upload';
+// $method = "getTypeList";
+// $method = "list";
 // $method = "info";
-$claimfile = 'HL801284.017';
-$resourceID = "83321";
+$method = 'upload';
+// $method = "delete";
+// $method = "update";
+$claimfile = 'Claim_File.txt';
+$resourceID = "83351";
 
 global $MOH_ID, $username, $password;
 $MOH_ID = '621300';
@@ -27,6 +31,27 @@ $privatekey = $pkcs12Info['pkey'];
 function loadbody() {
   global $method, $claimfile, $resourceID;
   switch ($method) {
+    case 'getTypeList':
+      $rawbody = <<<EOT
+         <soapenv:Body wsu:Id="id-5">
+            <edt:getTypeList/>
+         </soapenv:Body>
+      EOT;
+        break;
+    case 'list':
+      $rawbody = <<<EOT
+         <soapenv:Body wsu:Id="id-5">
+            <edt:list>
+               <!--Optional:-->
+               <resourceType>CL</resourceType>
+               <!--Optional:-->
+               <status>UPLOADED</status>
+               <!--Optional:-->
+               <pageNo>1</pageNo>
+            </edt:list>
+         </soapenv:Body>
+      EOT;
+        break;
   case 'info':
     $rawbody = <<<EOT
      <soapenv:Body wsu:Id="id-5">
@@ -54,9 +79,31 @@ function loadbody() {
     </soapenv:Body>
     EOT;
       break;
-  case 'list':
-      // Code to execute if $variable equals 'value3'
+  case 'delete':
+    $rawbody = <<<EOT
+       <soapenv:Body wsu:Id="id-5">
+          <edt:delete>
+             <!--1 to 100 repetitions:-->
+             <resourceIDs>$resourceID</resourceIDs>
+          </edt:delete>
+       </soapenv:Body>
+    EOT;
       break;
+    case 'update':
+      $rawbody = <<<EOT
+         <soapenv:Body wsu:Id="id-5">
+          <edt:update>
+             <!--1 to 5 repetitions:-->
+             <updates>
+                <content>
+        <inc:Include href="cid:$claimfile" xmlns:inc="http://www.w3.org/2004/08/xop/include" />
+                </content>
+                <resourceID>$resourceID</resourceID>
+             </updates>
+          </edt:update>
+         </soapenv:Body>
+      EOT;
+        break;
   default:
       echo "invalid method parameter";
       break;
@@ -295,14 +342,8 @@ function sendrequest($xmlPayload) {
 
   global $method, $claimfile;
   switch ($method) {
-    case 'info':
-      $headers = [
-          'Content-Type: text/xml;charset=UTF-8',
-          'Connection: Keep-Alive',
-      ];
-      break;
-    
     case 'upload':
+    case 'update':
       $fileContent = file_get_contents($claimfile);
   
       // Boundary for the multipart message
@@ -342,12 +383,15 @@ function sendrequest($xmlPayload) {
       $xmlPayload = $mimeMessage;
       break;
   
-    case 'value3':
-      // Code to execute if $variable equals 'value3'
-      break;
+    // case 'value3':
+    //   // Code to execute if $method equals 'value3'
+    //   break;
+    
     default:
-      // Code to execute if $variable doesn't match any case
-      echo "Invalid method";
+      $headers = [
+          'Content-Type: text/xml;charset=UTF-8',
+          // 'Connection: Keep-Alive',
+      ];
       break;
   }
   
@@ -412,7 +456,11 @@ $response = sendrequest($rawxml);
 
 
 $decryptedResult = decryptResponse($response[1]);
-echo $decryptedResult; //for debugging
+// echo $decryptedResult; //for debugging
+$methodResponse = 'xml_response/'.$method . '_response.xml';
+file_put_contents($methodResponse, $decryptedResult);
+$txtFilePath= 'xml_response/txt/'.$method . '_response.txt';
+response_to_file($methodResponse,$txtFilePath);
 
 function decryptResponse($responseXML) {
   // input encrypted response XML, output decrypted result XML

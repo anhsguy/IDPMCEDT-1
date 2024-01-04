@@ -76,3 +76,4 @@ Via: 1.1 10.198.22.202:1457
 The sequence of $EBS and $IDP difference between EBS-EDT - IDP Model Message Example.docx and MCEDT Upload Request Message Structure.pdf (one is just after Header-$EBS/$IDP <> before Body $IDP/$EBS)
 Try both, same result.
 6. Sending 'getTypeList' request > response don't know why decrypted AES key not created with the privite key (IV is created)
+7. upload 3-5 claims files at the same time

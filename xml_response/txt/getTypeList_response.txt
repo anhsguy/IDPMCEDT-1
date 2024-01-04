@@ -1,0 +1,38 @@
+0					
+1	OBEC Response		OO		
+2	eSubmit Submission Confirmation		ESC		
+3	Compensation Increase Report		CIR		
+4	Remittance Advice Extract		RS		
+5	Detailed Cat PDF		DCP		
+6	eSubmit Form Return		EFR		
+7	Claim File		CL		
+8	Error Reports Extract		ES		
+9	Target Population PDF		TPP		
+10	Detailed Cat CSV		DCT		
+11	OBEC inbound file		OB		
+12	Target Population TAB		TPT		
+13	OBEC Mail File Reject Message (from inbound)		OR		
+14	Remittance Advice		RA		
+15	Roster Capitation Report XML		RCX		
+16	Payment Summary Report PDF		PSP		
+17	Claims Mail File Reject Message (from inbound)		MR		
+18	General Communications		GCM		
+19	Stale Dated Claim file		SDC		
+20	Payment Summary Report XML		PSX		
+21	Batch Edit		BE		
+22	EC Outside Use report		CO		
+23	Error Reports		ER		
+24	EC Summary report		CS		
+25	eSubmit Submission Upload		ESU		
+26	Roster Capitation Report PDF		RCP		
+27	Stale Dated Claim file		SDC		
+
+Root Tag: return > data
+
+access
+descriptionEn
+descriptionFr
+groupRequired
+resourceType
+result
+csns
